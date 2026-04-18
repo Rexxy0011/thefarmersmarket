@@ -26,7 +26,7 @@ const SellerLayout = () => {
       <div className="flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white">
         <Link to="/">
           <img
-            className="cursor-pointer w-34 md:w-38"
+            className="cursor-pointer h-9 sm:h-12 md:h-16 w-auto"
             src={assets.logo}
             alt="logo"
           />
