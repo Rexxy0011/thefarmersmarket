@@ -21,7 +21,7 @@ const MainBanner = () => {
       {/* Banner Text + Buttons */}
       <div className="absolute inset-0 flex flex-col items-center md:items-start justify-end md:justify-center pb-20 md:pl-16 lg:pl-24">
         <h1 className="text-3xl md:text-5xl lg:text-4.5xl font-bold text-gray-900 text-center md:text-left max-w-xl leading-snug">
-          Eat fresh and enjoy groceries delivered with care!
+          The widest fresh range in Ghana. Fruits, vegetables, butchery, and more.
         </h1>
 
         <div className="flex items-center gap-4 mt-6 font-medium">

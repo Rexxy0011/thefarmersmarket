@@ -5,10 +5,10 @@ const Footer = () => {
     <div id="contact" className="px-6 md:px-16 lg:px-24 xl:px-32 mt-24 bg-primary/10">
       <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
         <div>
-          <img className="h-14 md:h-16" src={assets.logo} alt="Logo" />
+          <img className="h-9 sm:h-12 md:h-16" src={assets.logo} alt="Logo" />
           <p className="max-w-[410px] mt-6">
-            We deliver fresh groceries quickly and reliably, earning the trust
-            of our customers and making every shopping experience worth it.
+            Fresh from our farmers, picked for your kitchen. Visit any of our
+            five shops in Accra and Tema.
           </p>
         </div>
         <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
