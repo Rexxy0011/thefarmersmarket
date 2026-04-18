@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
   const {
     user,
     setUser,
@@ -30,6 +32,26 @@ const Navbar = () => {
       navigate("/products");
     }
   }, [searchQuery]);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleClickOutside = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        toggleRef.current &&
+        !toggleRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [open]);
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-2 border-b border-gray-300 bg-white relative transition-all">
@@ -105,6 +127,7 @@ const Navbar = () => {
           </button>
         </div>
         <button
+          ref={toggleRef}
           onClick={() => setOpen(!open)}
           aria-label="Menu"
           className="sm:hidden"
@@ -114,7 +137,10 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex flex-col items-start gap-2 px-5 text-sm md:hidden z-50">
+        <div
+          ref={menuRef}
+          className="absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex flex-col items-start gap-2 px-5 text-sm md:hidden z-50"
+        >
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home
           </NavLink>
